@@ -1,6 +1,9 @@
-# SAMTSRSTemplate
+# AWA SAM Rust & TypeScript template
 
 
+Requirements
+- NodeJs
+- Cargo lambda https://www.cargo-lambda.info/guide/installation.html 
 
 ## Deploy the sample application
 
@@ -19,6 +22,7 @@ sam build
 SAMTSRSTemplate$ sam local start-api
 SAMTSRSTemplate$ curl http://localhost:3000/
 ```
+Note: Always run `sam build` after editing code.
 
 ## Deploy
 
@@ -66,10 +70,15 @@ The SAM CLI reads the application template to determine the API's routes and the
 
 ```yaml
       Events:
-        HelloWorld:
+        HelloWorldJS:
           Type: Api
           Properties:
-            Path: /hello
+            Path: /hellojs
+            Method: get
+       HelloWorldRS:
+          Type: Api
+          Properties:
+            Path: /hellors
             Method: get
 ```
 
@@ -88,15 +97,6 @@ SAMTSRSTemplate$ sam logs -n HelloWorldFunction --stack-name SAMTSRSTemplate --t
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
 
-## Unit tests
-
-Tests are defined in the `hello-world/tests` folder in this project. Use NPM to install the [Jest test framework](https://jestjs.io/) and run unit tests.
-
-```bash
-SAMTSRSTemplate$ cd hello-world
-hello-world$ npm install
-hello-world$ npm run test
-```
 
 ## Cleanup
 
