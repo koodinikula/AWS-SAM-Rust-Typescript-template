@@ -1,5 +1,6 @@
-# AWA SAM Rust & TypeScript template
+# AWA SAM Rust & TypeScript boilerplate
 
+a simple boilerplate that demonstrates using both rust and typescription in the same project.
 
 Requirements
 - NodeJs
